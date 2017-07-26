@@ -74,7 +74,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& make -j$(getconf _NPROCESSORS_ONLN) \
 	&& make install \
 	&& rm -rf /etc/nginx/html/ \
-	&& mkdir /etc/nginx/conf.d/ \
+##  && mkdir /etc/nginx/conf.d/ \
 ##	&& mkdir -p /usr/share/nginx/html/ \
 ##	&& install -m644 html/index.html /usr/share/nginx/html/ \
 ##	&& install -m644 html/50x.html /usr/share/nginx/html/ \
@@ -85,7 +85,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 ##	&& install -m755 objs/ngx_stream_geoip_module-debug.so /usr/lib/nginx/modules/ngx_stream_geoip_module-debug.so \
 	&& ln -s ../../usr/lib/nginx/modules /etc/nginx/modules \
 	&& strip /usr/sbin/nginx* \
-	&& strip /usr/lib/nginx/modules/*.so \
+##	&& strip /usr/lib/nginx/modules/*.so \
 	&& rm -rf /usr/src/nginx-$NGINX_VERSION \
 	\
 	# Bring in gettext so we can get `envsubst`, then throw
@@ -112,7 +112,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
+##COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
